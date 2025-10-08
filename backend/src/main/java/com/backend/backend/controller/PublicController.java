@@ -1,12 +1,18 @@
 package com.backend.backend.controller;
 
+import com.backend.backend.model.Bruker;
 import com.backend.backend.model.Kort;
 import com.backend.backend.model.Samling;
+import com.backend.backend.repo.BrukerRepo;
 import com.backend.backend.repo.KortRepo;
 import com.backend.backend.repo.SamlingRepo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Controller;
+
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,8 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/api")
+@RestController @RequestMapping("/api")
 @RequiredArgsConstructor
 public class PublicController {
     private final KortRepo kortRepo;
@@ -33,3 +38,4 @@ public class PublicController {
         return samlingRepo.findByIsPublicTrueOrderByOppdatertDesc();
     }
 }
+

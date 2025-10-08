@@ -6,7 +6,7 @@ import lombok.Setter;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name="brukere")
+@Table(name="brukere", schema = "pokemoncards")
 @Getter
 @Setter
 public class Bruker {

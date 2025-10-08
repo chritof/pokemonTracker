@@ -6,7 +6,7 @@ import lombok.Setter;
 import java.sql.Timestamp;
 
 
-@Entity @Table(name="samling")
+@Entity @Table(name="samling", schema = "pokemoncards")
 @Getter @Setter
 public class Samling {
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
