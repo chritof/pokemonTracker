@@ -1,0 +1,19 @@
+package com.backend.backend.model;
+
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import java.sql.Timestamp;
+
+@Entity
+@Table(name="brukere")
+@Getter
+@Setter
+public class Bruker {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Integer id;
+    private String email;
+    private String displayName;
+    private Timestamp opprettet;
+}
