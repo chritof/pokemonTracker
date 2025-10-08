@@ -12,6 +12,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
@@ -57,5 +59,12 @@ public class TestController {
         List<Samling> samling = samlingRepo.findAll();
         model.addAttribute("samling", samling);
         return "samlingTest";
+    }
+
+    @GetMapping("/cards/trending")
+    public List<Kort> trending() {
+        // enkel variant: siste 8 opprettede
+        Pageable p = PageRequest.of(0, 8, Sort.by(Sort.Direction.DESC, "opprettet"));
+        return kortRepo.findAll(p).getContent();
     }
 }
