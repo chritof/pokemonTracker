@@ -1,20 +1,35 @@
-export default function Navbar() {
+export default function NavBar() {
   return (
-    <header className="sticky top-0 z-50 bg-black/30 backdrop-blur-md border-b border-white/10">
-      <nav className="container mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-poke.yellow via-poke.orange to-poke.pink shadow-md" />
-          <span className="font-semibold tracking-wide">PokeValue</span>
+    <nav className="mx-12 py-6 px-10 mt-10 border border-white/10 bg-slate-900/70 backdrop-blur-xl rounded-2xl shadow-lg text-white transition-colors duration-300">
+      {/* this make the space between the three main functions in the navbar:
+      pokemon logo, links and profile logo */}
+      <div className="flex justify-between items-center">
+        {/* Logo */}
+        <div>
+          <img src="/pokemonLogo1.png" className="h-10 w-auto" alt="Pokémon logo" />
         </div>
-        <ul className="hidden sm:flex items-center gap-6 text-sm text-white/90">
-          <li className="hover:text-white transition"><a href="#browse">Browse Cards</a></li>
-          <li className="hover:text-white transition"><a href="#collection">My Collection</a></li>
-          <li className="hover:text-white transition"><a href="#prices">Price Tracker</a></li>
+
+        {/* Menu links */}
+        <ul className="hidden md:flex gap-7 items-center">
+          {["Home", "Browse cards", "My collection", "Price tracker", "Login"].map((item) => (
+            <li key={item}>
+              <a
+                href="#"
+                className="text-xl border-b-2 border-transparent hover:border-white transition-all"
+              >
+                {item}
+              </a>
+            </li>
+          ))}
         </ul>
-        <div className="flex items-center gap-2">
-          <button className="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/15 border border-white/10">Login</button>
+
+        {/* Profile icon */}
+        <div>
+          <a href="#">
+            <img src="/profilLogo2.png" className="h-7 w-auto pl-5" alt="Profile icon" />
+          </a>
         </div>
-      </nav>
-    </header>
-  )
+      </div>
+    </nav>
+  );
 }
